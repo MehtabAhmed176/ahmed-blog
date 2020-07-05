@@ -21,10 +21,10 @@ const validateMiddleware = require("./middleware/validateMiddleware");
 const authMiddleware = require('./middleware/authMiddleware');
 const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware')
 const flash = require('connect-flash');
-
+const dbconn=require('./keys')
 app.use(fileUpload()) 
 
-mongoose.connect('mongodb+srv://mehtab:Helloworld@176@cluster0.syudl.mongodb.net/my_database', {useNewUrlParser: true});
+mongoose.connect(dbconn.dbConnectionString, {useNewUrlParser: true});
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
